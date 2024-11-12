@@ -3,17 +3,32 @@ import banner from '../../assets/Rectangle 12.jpg'
 import layer from '../../assets/Layer_x0020_1.png'
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
 
-       const handleRegister = e =>{
+       const { CreateUser } = useContext(AuthContext)
+
+       const handleRegister = e => {
               e.preventDefault();
               const name = e.target.name.value;
               const url = e.target.Url.value;
               const email = e.target.email.value;
               const password = e.target.password.value;
               console.log(name, url, email, password)
+              CreateUser(email, password)
+                     .then(result => {
+                            console.log(result.user)
+                            e.target.reset()
+                            toast.success("Account Create Successful");
+                     })
+                     .catch(error => {
+                            toast.error(error.message)
+                     })
        }
 
        return (
@@ -61,6 +76,10 @@ const Register = () => {
                                                  </div>
                                                  <div className="form-control">
                                                         <button className="btn bg-green-800 text-white">Register Now</button>
+                                                        <ToastContainer
+                                                               theme="colored"
+                                                               autoClose={2000}
+                                                        ></ToastContainer>
                                                  </div>
                                                  <p className="text-xs text-center mt-2">Already Have An Account ? Please <Link className="link-success font-semibold" to='/login'>Login Now</Link></p>
                                           </form>
