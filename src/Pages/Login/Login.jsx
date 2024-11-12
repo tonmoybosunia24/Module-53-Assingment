@@ -2,7 +2,7 @@ import Navber from "../../Sections/Navber";
 import banner from '../../assets/Rectangle 12.jpg'
 import layer from '../../assets/Layer_x0020_1.png'
 import { FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 const Login = () => {
 
        const {Login} = useContext(AuthContext)
+       const location = useLocation()
+       const navigate = useNavigate()
 
        const handleLogin = e =>{
               e.preventDefault();
@@ -21,6 +23,7 @@ const Login = () => {
                      console.log(result.user)
                      e.target.reset()
                      toast.success('Login Successful')
+                     navigate(location?.state ? location.state : '/')
               })
               .catch(error =>{
                      toast.error(error.message)
