@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -18,10 +19,13 @@ const Register = () => {
               const url = e.target.Url.value;
               const email = e.target.email.value;
               const password = e.target.password.value;
-              console.log(name, url, email, password)
               CreateUser(email, password)
                      .then(result => {
-                            console.log(result.user)
+                            const user = result.user;
+                            updateProfile(user, {
+                                   displayName: name,
+                                   photoURL: url,
+                            })
                             e.target.reset()
                             toast.success('Account Create Successfull')
                      })

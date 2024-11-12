@@ -4,6 +4,7 @@ import { FaBars } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
 import { toast } from "react-toastify";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navber = () => {
 
@@ -54,6 +55,17 @@ const Navber = () => {
                                    </ul>
                             </div>
                             <div className="navbar-end">
+                                   {
+                                          user && user.photoURL ? (
+                                                 <img
+                                                        src={user.photoURL}
+                                                        alt="User Profile"
+                                                        className="w-10 h-10 border-2 border-white rounded-full mr-3 cursor-pointer"
+                                                 />
+                                          ) : (
+                                                 <FaUserCircle className="text-4xl text-white border rounded-full bg-green-800 mr-3 cursor-pointer" />
+                                          )
+                                   }
                                    {
                                           user ? <button onClick={handleSingOut} className="bg-white font-semibold text-green-700 px-7 py-2 rounded-none">Logout</button> : <Link to='/login'><a className="bg-white font-semibold text-green-700 px-7 py-2 rounded-none">Login</a></Link>
                                    }
