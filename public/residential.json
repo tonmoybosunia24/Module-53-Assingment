@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "estate_title": "Greenwood Estate",
+    "segment_name": "Luxury Apartment",
+    "description": "A beautiful luxury apartment located in the heart of the city with modern amenities and stunning views.",
+    "price": "$450,000",
+    "status": "sale",
+    "area": "2000 sq ft",
+    "location": "Downtown, City Center",
+    "facilities": {
+      "living_room": "available",
+      "kitchen": "modern",
+      "washrooms": 3,
+      "bedrooms": 4,
+      "swimming_pool": "available"
+    }
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be",
+    "estate_title": "Blue Horizon Villa",
+    "segment_name": "Beach House",
+    "description": "A spacious beach house offering breathtaking ocean views and private beach access.",
+    "price": "$1,200,000",
+    "status": "sale",
+    "area": "3500 sq ft",
+    "location": "Ocean Drive, Malibu",
+    "facilities": {
+      "living_room": "available",
+      "kitchen": "open",
+      "washrooms": 5,
+      "bedrooms": 5,
+      "swimming_pool": "private"
+    }
+  },
+  {
+    "id": 3,
+    "image": "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "estate_title": "Skyline Heights",
+    "segment_name": "Penthouse",
+    "description": "A luxurious penthouse located on the top floor with panoramic city views and exclusive amenities.",
+    "price": "$2,000,000",
+    "status": "sale",
+    "area": "3000 sq ft",
+    "location": "Uptown, New York",
+    "facilities": {
+      "living_room": "spacious",
+      "kitchen": "gourmet",
+      "washrooms": 4,
+      "bedrooms": 4,
+      "swimming_pool": "rooftop"
+    }
+  },
+  {
+    "id": 4,
+    "image": "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "estate_title": "Sunset Residence",
+    "segment_name": "Family Home",
+    "description": "A perfect family home with a large garden and a cozy living environment in a peaceful neighborhood.",
+    "price": "$600,000",
+    "status": "rent",
+    "area": "2500 sq ft",
+    "location": "Green Valley, Suburbs",
+    "facilities": {
+      "living_room": "available",
+      "kitchen": "fully equipped",
+      "washrooms": 3,
+      "bedrooms": 5,
+      "swimming_pool": "not available"
+    }
+  },
+  {
+    "id": 5,
+    "image": "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "estate_title": "Urban Loft",
+    "segment_name": "Loft Apartment",
+    "description": "An urban loft featuring open-plan design and modern interiors, ideal for city living.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "1500 sq ft",
+    "location": "City Center, Chicago",
+    "facilities": {
+      "living_room": "open",
+      "kitchen": "modern",
+      "washrooms": 2,
+      "bedrooms": 2,
+      "swimming_pool": "shared"
+    }
+  },
+  {
+    "id": 6,
+    "image": "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "estate_title": "Lakeview Cottage",
+    "segment_name": "Cottage",
+    "description": "A charming lakefront cottage with stunning views and a relaxing environment, perfect for weekend getaways.",
+    "price": "$250,000",
+    "status": "rent",
+    "area": "1800 sq ft",
+    "location": "Lakeview, Wisconsin",
+    "facilities": {
+      "living_room": "available",
+      "kitchen": "cozy",
+      "washrooms": 2,
+      "bedrooms": 3,
+      "swimming_pool": "not available"
+    }
+  }
+]
