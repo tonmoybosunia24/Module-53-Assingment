@@ -5,8 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
 const Register = () => {
@@ -24,7 +23,7 @@ const Register = () => {
                      .then(result => {
                             console.log(result.user)
                             e.target.reset()
-                            toast.success("Account Create Successful");
+                            toast.success('Account Create Successfull')
                      })
                      .catch(error => {
                             toast.error(error.message)
@@ -76,10 +75,6 @@ const Register = () => {
                                                  </div>
                                                  <div className="form-control">
                                                         <button className="btn bg-green-800 text-white">Register Now</button>
-                                                        <ToastContainer
-                                                               theme="colored"
-                                                               autoClose={2000}
-                                                        ></ToastContainer>
                                                  </div>
                                                  <p className="text-xs text-center mt-2">Already Have An Account ? Please <Link className="link-success font-semibold" to='/login'>Login Now</Link></p>
                                           </form>

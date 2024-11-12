@@ -5,8 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 const Login = () => {
 
@@ -21,7 +20,7 @@ const Login = () => {
               .then(result => {
                      console.log(result.user)
                      e.target.reset()
-                     toast.success("Login Successful");
+                     toast.success('Login Successful')
               })
               .catch(error =>{
                      toast.error(error.message)
@@ -61,10 +60,6 @@ const Login = () => {
                                                  </div>
                                                  <div className="form-control">
                                                         <button className="btn bg-green-800 text-white">Login</button>
-                                                        <ToastContainer
-                                                               theme="colored"
-                                                               autoClose={2000}
-                                                        ></ToastContainer>
                                                  </div>
                                                  <p className="text-xs text-center mt-2">Don't Have An Account ? Please <Link className="link-success font-semibold" to='/register'>Register Now</Link></p>
                                           </form>
