@@ -10,7 +10,7 @@ const Header = () => {
               <div className="w-full lg:min-h-screen font-poppins" style={{ backgroundImage: `url(${layer}) ,url(${banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain, cover' }}>
                      <Navber></Navber>
                      <div className="flex flex-col gap-10 lg:flex-row lg:items-center mt-0 md:mt-14 lg:mt-0">
-                            <div className="text-white flex flex-col justify-center lg:w-3/6 lg:ml-[96.970px] mt-12 space-y-3 px-5 lg:px-0">
+                            <div className="text-white flex flex-col justify-center lg:w-3/6 lg:ml-[96.970px] mt-14 lg:mt-0 space-y-3 px-5 lg:px-0">
                                    <h2 className="text-5xl font-bold hidden lg:block">Healping You To <br /> Find Your Dream Home.</h2>
                                    <h2 className="text-4xl font-bold lg:hidden">Healping You To Find Your Dream Job.</h2>
                                    <p className="hidden lg:block"><span className="font-bold">Dream Home</span> Is Here To Help You Find The Best Home, <br />Whether For Sale Or Rent, With Trusted <br />Sources.</p>
