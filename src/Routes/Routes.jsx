@@ -15,12 +15,13 @@ const Routes = createBrowserRouter([
               children: [
                      {
                             path: '/',
-                            element: <Home></Home>
+                            element: <Home></Home>,
+                            loader: () => fetch('/residential.json')
                      },
                      {
                             path: '/details/:id',
                             element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-                            loader: () => fetch('../../public/residential.json')
+                            loader: () => fetch('/residential.json')
                      },
                      {
                             path: '/updateProfile',
