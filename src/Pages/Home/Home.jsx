@@ -1,3 +1,4 @@
+import Features from "../../Sections/Features";
 import Houses from "../../Sections/Houses";
 import Services from "../../Sections/Services";
 import Slider from "../../Sections/Slider";
@@ -10,6 +11,7 @@ const Home = () => {
                      <Services></Services>
                      <Slider></Slider>
                      <Houses></Houses>
+                     <Features></Features>
               </div>
        );
 };

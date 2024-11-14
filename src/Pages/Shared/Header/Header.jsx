@@ -15,7 +15,7 @@ const Header = () => {
                                    <h2 className="text-5xl font-bold hidden lg:block" style={{ whiteSpace: 'pre-line' }}>
                                           <Typewriter
                                                  words={['Healping You To \n Find Your New Property.', 'Healping You To \n Find Your Rental \n Home.', 'Healping You To \n Find Your Dream \n Home.']}
-                                                 loop={5}
+                                                 loop={true}
                                                  typeSpeed={70}
                                                  deleteSpeed={50}
                                           ></Typewriter>
@@ -23,7 +23,7 @@ const Header = () => {
                                    <h2 className="text-4xl font-bold lg:hidden" style={{ whiteSpace: 'pre-line' }}>
                                           <Typewriter
                                                  words={['Healping You To Find Your New Property.', 'Healping You To Find Your Rental Home.', 'Healping You To Find Your Dream Home.']}
-                                                 loop={5}
+                                                 loop={true}
                                                  typeSpeed={70}
                                                  deleteSpeed={50}
                                           ></Typewriter>
