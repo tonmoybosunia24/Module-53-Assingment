@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
-import { updateProfile } from "firebase/auth";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -28,6 +28,13 @@ const Register = () => {
                             })
                             e.target.reset()
                             toast.success('Account Create Successfull')
+                            sendEmailVerification(user)
+                            .then(()=>{
+                                   toast.success('Varification Email Sent To Your Email Address')
+                            })
+                            .catch(error =>{
+                                   toast.error(error.message)
+                            })
                      })
                      .catch(error => {
                             toast.error(error.message)

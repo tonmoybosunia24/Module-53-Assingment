@@ -3,31 +3,59 @@ import banner from '../../assets/Rectangle 12.jpg'
 import layer from '../../assets/Layer_x0020_1.png'
 import { FaArrowRight } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
+import { sendEmailVerification } from "firebase/auth";
 
 const Login = () => {
 
-       const {Login} = useContext(AuthContext)
+       const { Login, Reset } = useContext(AuthContext)
        const location = useLocation()
        const navigate = useNavigate()
+       const eRef = useRef(null)
 
-       const handleLogin = e =>{
+       const handleLogin = e => {
               e.preventDefault();
               const email = e.target.email.value;
               const password = e.target.password.value;
               console.log(email, password)
               Login(email, password)
-              .then(result => {
-                     console.log(result.user)
-                     e.target.reset()
-                     toast.success('Login Successful')
-                     navigate(location?.state ? location.state : '/')
-              })
-              .catch(error =>{
-                     toast.error(error.message)
-              })
+                     .then(result => {
+                            const user = result.user
+                            if (user.emailVerified === false) {
+                                   toast.error('Please Varify Your Email')
+                                   sendEmailVerification(user)
+                                          .then(() => {
+                                                 toast.success('Varification Email Sent To Your Email Address')
+                                          })
+                                          .catch(error => {
+                                                 toast.error(error.message)
+                                          })
+                                   return;
+                            }
+                            e.target.reset()
+                            toast.success('Login Successful')
+                            navigate(location?.state ? location.state : '/')
+                     })
+                     .catch(error => {
+                            toast.error(error.message)
+                     })
+       }
+       const HandleResetPass = () => {
+              const Remail = eRef.current.value;
+              if (!Remail) {
+                     toast.error("Please Submit An Email")
+                     return;
+              }
+              Reset(Remail)
+                     .then(() => {
+                            toast.success("Reset Email Sent To Your Email")
+                     })
+                     .catch(error => {
+                            toast.error(error.message)
+                     })
+
        }
 
        return (
@@ -50,7 +78,7 @@ const Login = () => {
                                                         <label className="label">
                                                                <span className="label-text">Email</span>
                                                         </label>
-                                                        <input type="email" name="email" placeholder="Enter Your Email" className="input input-bordered" required />
+                                                        <input ref={eRef} type="email" name="email" placeholder="Enter Your Email" className="input input-bordered" required />
                                                  </div>
                                                  <div className="form-control">
                                                         <label className="label">
@@ -58,7 +86,7 @@ const Login = () => {
                                                         </label>
                                                         <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
                                                         <label className="label">
-                                                               <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                                               <a onClick={HandleResetPass} href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                                         </label>
                                                  </div>
                                                  <div className="form-control">
