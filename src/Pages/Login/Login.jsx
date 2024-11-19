@@ -3,10 +3,13 @@ import banner from '../../assets/Rectangle 12.jpg'
 import layer from '../../assets/Layer_x0020_1.png'
 import { FaArrowRight } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
 import { sendEmailVerification } from "firebase/auth";
+import { IoEye } from "react-icons/io5";
+import { IoIosEyeOff } from "react-icons/io";
+
 
 const Login = () => {
 
@@ -14,6 +17,7 @@ const Login = () => {
        const location = useLocation()
        const navigate = useNavigate()
        const eRef = useRef(null)
+       const [passEye, setPassEye] = useState(true)
 
        const handleLogin = e => {
               e.preventDefault();
@@ -58,6 +62,10 @@ const Login = () => {
 
        }
 
+       const handleEye = () => {
+              setPassEye(!passEye)
+       }
+
        return (
               <div>
                      <div className="w-full min-h-screen font-poppins" style={{ backgroundImage: `url(${layer}) ,url(${banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain, cover' }}>
@@ -84,7 +92,12 @@ const Login = () => {
                                                         <label className="label">
                                                                <span className="label-text">Password</span>
                                                         </label>
-                                                        <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
+                                                        <div className="relative">
+                                                               <input type={passEye ? "password" : "text"} name="password" placeholder="Password" className="input input-bordered w-full" required />
+                                                               {
+                                                                      passEye ? <IoIosEyeOff onClick={handleEye} className="absolute top-4 right-4 text-xl cursor-pointer" /> : <IoEye onClick={handleEye} className="absolute top-4 right-4 text-xl cursor-pointer" /> 
+                                                               }
+                                                        </div>
                                                         <label className="label">
                                                                <a onClick={HandleResetPass} href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                                         </label>

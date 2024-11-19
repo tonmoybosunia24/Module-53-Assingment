@@ -3,15 +3,18 @@ import banner from '../../assets/Rectangle 12.jpg'
 import layer from '../../assets/Layer_x0020_1.png'
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
 import { sendEmailVerification, updateProfile } from "firebase/auth";
+import { IoEye } from "react-icons/io5";
+import { IoIosEyeOff } from "react-icons/io";
 
 
 const Register = () => {
 
        const { CreateUser } = useContext(AuthContext)
+       const [passEye, setPassEye] = useState(true)
 
        const handleRegister = e => {
               e.preventDefault();
@@ -39,6 +42,10 @@ const Register = () => {
                      .catch(error => {
                             toast.error(error.message)
                      })
+       }
+
+       const handleEye = () => {
+              setPassEye(!passEye)
        }
 
        return (
@@ -79,7 +86,12 @@ const Register = () => {
                                                         <label className="label">
                                                                <span className="label-text">Password</span>
                                                         </label>
-                                                        <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
+                                                        <div className="relative">
+                                                               <input type={passEye ? "password" : "text"} name="password" placeholder="Password" className="input input-bordered w-full" required />
+                                                               {
+                                                                      passEye ? <IoIosEyeOff onClick={handleEye} className="absolute top-4 right-4 text-xl cursor-pointer" /> : <IoEye onClick={handleEye} className="absolute top-4 right-4 text-xl cursor-pointer" /> 
+                                                               }
+                                                        </div>
                                                         <label className="label">
                                                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                                         </label>
